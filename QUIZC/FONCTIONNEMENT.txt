@@ -1,0 +1,30 @@
+FONCTIONNEMENT DU QUIZ DE PHYSIQUE
+
+Le programme contient 20 questions de physique et choisit 10 questions aleatoirement a chaque partie.
+
+Chaque question contient 3 choix. Le joueur saisit 1, 2 ou 3.
+
+A la fin :
+- le score est affiche ;
+- le nombre de bonnes et mauvaises reponses est affiche ;
+- chaque erreur est corrigee.
+
+Pour chaque mauvaise reponse, le programme affiche :
+1. la question COMPLETE ;
+2. la reponse COMPLETE du joueur ;
+3. la bonne reponse COMPLETE.
+
+Exemple :
+Question 3 :
+Quelle est l'unite de la force dans le Systeme International ?
+
+Votre reponse : 2 - Le joule
+La bonne reponse : 1 - Le newton
+
+Le meilleur score est conserve dans meilleur_score.txt et remplace seulement si le nouveau score est meilleur.
+
+Compilation :
+gcc quiz.c -o quiz.exe
+
+Execution :
+.\quiz.exe

@@ -1,0 +1,536 @@
+# FONCTIONNEMENT DE L'APPLICATION
+
+Nom de l'application : Étude d'une fonction
+
+Langage utilisé : Python
+Interface graphique : Tkinter
+Bibliothèque de calcul numérique : NumPy
+Bibliothèque de graphiques : Matplotlib
+
+1. PRÉSENTATION DE L'APPLICATION
+
+---
+
+Cette application permet d'étudier et de représenter graphiquement différentes familles de fonctions mathématiques.
+
+L'utilisateur peut sélectionner un type de fonction, saisir ses paramètres et afficher automatiquement sa représentation graphique.
+
+L'application contient également une calculatrice scientifique accessible depuis la fenêtre principale.
+
+2. TYPES DE FONCTIONS DISPONIBLES
+
+---
+
+L'application propose six types de fonctions :
+
+* Fonction linéaire
+* Fonction affine
+* Polynôme du second degré
+* Fonction puissance
+* Fonction exponentielle
+* Fonction logarithmique
+
+3. FONCTION LINÉAIRE
+
+---
+
+Forme générale :
+
+```
+f(x) = ax
+```
+
+Paramètre :
+
+```
+a : coefficient directeur
+```
+
+Domaine :
+
+```
+ℝ
+```
+
+Exemple :
+
+```
+a = 2
+```
+
+La fonction obtenue est :
+
+```
+f(x) = 2x
+```
+
+## 4. FONCTION AFFINE
+
+Forme générale :
+
+```
+f(x) = ax + b
+```
+
+Paramètres :
+
+```
+a : coefficient directeur
+b : constante
+```
+
+Domaine :
+
+```
+ℝ
+```
+
+Exemple :
+
+```
+a = 2
+b = 3
+```
+
+La fonction obtenue est :
+
+```
+f(x) = 2x + 3
+```
+
+## 5. POLYNÔME DU SECOND DEGRÉ
+
+Forme générale :
+
+```
+f(x) = ax² + bx + c
+```
+
+Paramètres :
+
+```
+a : coefficient de x²
+b : coefficient de x
+c : constante
+```
+
+Domaine :
+
+```
+ℝ
+```
+
+Exemple :
+
+```
+a = 1
+b = -2
+c = -3
+```
+
+La fonction obtenue est :
+
+```
+f(x) = x² - 2x - 3
+```
+
+La représentation graphique d'un polynôme du second degré est une parabole.
+
+6. FONCTION PUISSANCE
+
+---
+
+Forme générale :
+
+```
+f(x) = axⁿ
+```
+
+Paramètres :
+
+```
+a : coefficient
+n : exposant
+```
+
+Le domaine dépend de la valeur de n.
+
+Exemple :
+
+```
+a = 2
+n = 3
+```
+
+La fonction obtenue est :
+
+```
+f(x) = 2x³
+```
+
+## 7. FONCTION EXPONENTIELLE
+
+Forme générale utilisée dans l'application :
+
+```
+f(x) = ae^(bx) + c
+```
+
+Paramètres :
+
+```
+a : coefficient
+b : coefficient de x dans l'exposant
+c : constante
+```
+
+Domaine :
+
+```
+ℝ
+```
+
+Exemple :
+
+```
+a = 2
+b = 3
+c = -1
+```
+
+La fonction obtenue est :
+
+```
+f(x) = 2e^(3x) - 1
+```
+
+## 8. FONCTION LOGARITHMIQUE
+
+Forme générale utilisée dans l'application :
+
+```
+f(x) = a ln(x) + b
+```
+
+Paramètres :
+
+```
+a : coefficient
+b : constante
+```
+
+Domaine :
+
+```
+]0 ; +∞[
+```
+
+Le logarithme népérien ln(x) est défini uniquement lorsque :
+
+```
+x > 0
+```
+
+Exemple :
+
+```
+a = 2
+b = 3
+```
+
+La fonction obtenue est :
+
+```
+f(x) = 2ln(x) + 3
+```
+
+Pour cette raison, le programme commence le graphique à une valeur proche de 0 et n'utilise pas les valeurs négatives.
+
+9. FONCTIONNEMENT DE L'INTERFACE
+
+---
+
+Au lancement de l'application, une fenêtre principale apparaît.
+
+La fenêtre est divisée en deux parties :
+
+PARTIE GAUCHE :
+
+* titre de l'application ;
+* liste déroulante des fonctions ;
+* paramètres de la fonction ;
+* bouton « Afficher le graphique » ;
+* bouton « Calculatrice scientifique » ;
+* zone d'informations.
+
+PARTIE DROITE :
+
+* graphique de la fonction sélectionnée.
+
+10. SÉLECTION D'UNE FONCTION
+
+---
+
+L'utilisateur choisit une fonction dans la liste déroulante.
+
+Lorsque le type de fonction change, l'application reconstruit automatiquement la zone des paramètres.
+
+Elle affiche également :
+
+* la forme générale de la fonction ;
+* son domaine de définition ;
+* les paramètres nécessaires.
+
+11. SAISIE DES PARAMÈTRES
+
+---
+
+L'utilisateur saisit les valeurs nécessaires.
+
+Exemple pour une fonction affine :
+
+```
+a = 2
+b = 5
+```
+
+L'application construit alors :
+
+```
+f(x) = 2x + 5
+```
+
+## 12. AFFICHAGE DU GRAPHIQUE
+
+Après avoir saisi les paramètres, l'utilisateur clique sur :
+
+```
+« Afficher le graphique »
+```
+
+Le programme :
+
+1. récupère le type de fonction sélectionné ;
+2. récupère les paramètres ;
+3. crée les valeurs de x ;
+4. calcule les valeurs correspondantes de f(x) ;
+5. transmet les résultats à Matplotlib ;
+6. affiche la courbe dans l'interface Tkinter.
+
+Les axes x et y sont également affichés et une grille facilite la lecture du graphique.
+
+13. CAS PARTICULIER DU LOGARITHME
+
+---
+
+Le logarithme népérien est défini uniquement pour :
+
+```
+x > 0
+```
+
+Le programme utilise donc un intervalle adapté.
+
+Au lieu de commencer à :
+
+```
+x = -10
+```
+
+il commence à une valeur proche de zéro :
+
+```
+x = 0.01
+```
+
+Cela permet d'éviter les valeurs interdites du logarithme.
+
+14. CALCULATRICE SCIENTIFIQUE
+
+---
+
+L'application contient une calculatrice scientifique accessible avec le bouton :
+
+```
+« Calculatrice scientifique »
+```
+
+Elle s'ouvre dans une nouvelle fenêtre.
+
+La calculatrice permet notamment d'effectuer :
+
+* addition ;
+* soustraction ;
+* multiplication ;
+* division ;
+* parenthèses ;
+* racine carrée ;
+* sinus ;
+* cosinus ;
+* tangente ;
+* logarithme népérien ;
+* utilisation de π ;
+* utilisation de e.
+
+15. ORGANISATION DU PROGRAMME
+
+---
+
+Le programme est organisé en plusieurs fonctions afin de séparer les différentes responsabilités.
+
+calculer_fonction()
+
+Cette fonction effectue le calcul mathématique de f(x) selon le type de fonction choisi.
+
+obtenir_expression()
+
+Cette fonction construit une expression lisible de la fonction à partir des paramètres saisis.
+
+obtenir_informations()
+
+Cette fonction fournit les informations générales de chaque famille de fonctions, notamment sa forme générale et son domaine.
+
+afficher_graphique()
+
+Cette fonction récupère les paramètres, calcule les valeurs de la fonction et affiche la courbe avec Matplotlib.
+
+changer_fonction()
+
+Cette fonction adapte automatiquement l'interface lorsque l'utilisateur sélectionne une autre fonction.
+
+creer_champ()
+
+Cette fonction permet de créer les champs de saisie nécessaires aux paramètres.
+
+ouvrir_calculatrice()
+
+Cette fonction ouvre la fenêtre de la calculatrice scientifique.
+
+calculer_expression()
+
+Cette fonction traite les opérations effectuées dans la calculatrice.
+
+16. BIBLIOTHÈQUES UTILISÉES
+
+---
+
+Tkinter :
+
+Utilisé pour créer l'interface graphique de l'application.
+
+NumPy :
+
+Utilisé pour effectuer les calculs numériques et générer les valeurs de x.
+
+Matplotlib :
+
+Utilisé pour tracer les représentations graphiques des fonctions.
+
+Math :
+
+Utilisé principalement par la calculatrice scientifique pour les fonctions mathématiques comme :
+
+```
+sqrt()
+sin()
+cos()
+tan()
+log()
+```
+
+## 17. EXEMPLE COMPLET
+
+Pour étudier la fonction :
+
+```
+f(x) = 2ln(x) + 3
+```
+
+L'utilisateur sélectionne :
+
+```
+Logarithmique
+```
+
+Puis saisit :
+
+```
+a = 2
+b = 3
+```
+
+Il clique ensuite sur :
+
+```
+« Afficher le graphique »
+```
+
+Le programme calcule les valeurs de :
+
+```
+f(x) = 2ln(x) + 3
+```
+
+pour différentes valeurs de x respectant la condition :
+
+```
+x > 0
+```
+
+La courbe est ensuite affichée dans la partie droite de l'application.
+
+18. GESTION DES ERREURS
+
+---
+
+Le programme utilise des blocs try/except afin d'éviter que l'application se ferme brutalement lorsqu'une erreur se produit.
+
+Par exemple, si l'utilisateur saisit du texte à la place d'un nombre, l'application affiche :
+
+```
+« Veuillez entrer uniquement des nombres. »
+```
+
+Cela permet de rendre l'application plus robuste et plus facile à utiliser.
+
+19. OBJECTIF DU PROJET
+
+---
+
+L'objectif de cette application est de combiner les connaissances en programmation Python et les notions mathématiques liées aux fonctions.
+
+Elle permet notamment de :
+
+* manipuler des paramètres ;
+* effectuer des calculs numériques ;
+* respecter les domaines de définition ;
+* représenter graphiquement une fonction ;
+* créer une interface graphique avec Tkinter ;
+* utiliser des bibliothèques scientifiques Python ;
+* gérer les erreurs de saisie.
+
+20. RÉSUMÉ DU FONCTIONNEMENT
+
+---
+
+Le fonctionnement général peut être résumé ainsi :
+
+```
+Choisir une fonction
+        ↓
+Afficher sa forme générale
+        ↓
+Afficher les paramètres nécessaires
+        ↓
+Saisir les paramètres
+        ↓
+Cliquer sur « Afficher le graphique »
+        ↓
+Calculer les valeurs de f(x)
+        ↓
+Tracer la courbe avec Matplotlib
+        ↓
+Afficher le graphique
+```
+
+L'application permet donc à l'utilisateur de sélectionner une famille de fonctions, de définir ses paramètres et d'observer directement sa représentation graphique.
